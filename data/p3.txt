@@ -1,0 +1,17 @@
+începe_program
+{
+	întreg n, i, suma;
+	șir v;
+	suma = 0;
+	
+	citește(n);
+	pentru(i = 1; i <= n ; i += 1)
+	{
+		citește(v[i]);
+		suma += suma + v[i];
+	}
+
+	afișează('suma este: ', suma);
+
+	oprește;
+}

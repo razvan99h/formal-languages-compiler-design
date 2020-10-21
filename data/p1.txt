@@ -1,0 +1,25 @@
+începe_program
+{
+	întreg a, b, c;
+	caractere mesaj = ' este cel mai mic număr';
+
+	citește(a);
+	citește(b);
+	citește(c);
+
+	dacă(a <= b și b <= c)
+	{
+		afișează(a, mesaj);
+	}
+	sau_dacă (b <= a și a <= c)
+	{
+		afișează(b, mesaj);
+	}
+	altfel
+	{
+		afișează(c, mesaj);
+	}
+
+	oprește;
+}
+

@@ -1,0 +1,24 @@
+începe-program
+$
+	întreg a, b, c;
+
+	citește a;
+	citește b;
+	citește c;
+
+	dacă(a <= b <= c)
+	$
+		afișează(a, ' este cel mai mic număr);
+	$
+	sau-dacă(b <= a <= c)
+	$
+		afișează(b, ' este cel mai mic număr);
+	$
+	altfel
+	$
+		afișează(c, ' este cel mai mic număr);
+	$
+
+	oprește;
+$
+

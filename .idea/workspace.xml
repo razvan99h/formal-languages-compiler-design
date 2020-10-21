@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9142e89d-94bc-43cc-b3f1-f3f242e8bb41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/p1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/p1err.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/p2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/p3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/token.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/MyScanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/PIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/PIFElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
@@ -13,17 +21,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/HashTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/SymbolTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/symbolTable/HashTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/symbolTable/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/symbolTable/Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/symbolTable/SymbolTable.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,12 +51,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ipyHtY35A7qQzgKoDHAEYU2Lgz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -92,12 +95,16 @@
       <option name="presentableId" value="Default" />
       <updated>1602618743247</updated>
       <workItem from="1602618746889" duration="3560000" />
-      <workItem from="1602653660438" duration="3840000" />
+      <workItem from="1602653660438" duration="4466000" />
+      <workItem from="1603253492498" duration="9865000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="90" key="#Project_Structure" timestamp="1602618811194">
@@ -108,77 +115,82 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1602618914596" />
-    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1602621793825">
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603255677990">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603255677990" />
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1602621793825" />
     <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602618920911">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="618" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1602618920911" />
-    <state x="486" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602621397475">
+    <state x="432" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603256948816">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="432" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603256948816" />
     <state x="486" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1602621397475" />
     <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1602655589558">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="158" key="FileChooserDialogImpl/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602655589558" />
-    <state width="1537" height="286" key="GridCell.Tab.0.bottom" timestamp="1602657823235">
+    <state width="1537" height="231" key="GridCell.Tab.0.bottom" timestamp="1603263547009">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823235" />
-    <state width="1537" height="286" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1602651736172" />
-    <state width="1537" height="286" key="GridCell.Tab.0.center" timestamp="1602657823235">
+    <state width="1537" height="231" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263547009" />
+    <state width="1537" height="286" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state width="1537" height="231" key="GridCell.Tab.0.center" timestamp="1603263547009">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.0.center/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823235" />
-    <state width="1537" height="286" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1602651736171" />
-    <state width="1537" height="286" key="GridCell.Tab.0.left" timestamp="1602657823235">
+    <state width="1537" height="231" key="GridCell.Tab.0.center/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263547009" />
+    <state width="1537" height="286" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1602759501642" />
+    <state width="1537" height="231" key="GridCell.Tab.0.left" timestamp="1603263547009">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.0.left/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823235" />
-    <state width="1537" height="286" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1602651736171" />
-    <state width="1537" height="286" key="GridCell.Tab.0.right" timestamp="1602657823235">
+    <state width="1537" height="231" key="GridCell.Tab.0.left/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263547009" />
+    <state width="1537" height="286" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1602759501642" />
+    <state width="1537" height="231" key="GridCell.Tab.0.right" timestamp="1603263547009">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.0.right/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823235" />
-    <state width="1537" height="286" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1602651736172" />
-    <state width="1537" height="286" key="GridCell.Tab.1.bottom" timestamp="1602657823236">
+    <state width="1537" height="231" key="GridCell.Tab.0.right/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263547009" />
+    <state width="1537" height="286" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state width="1537" height="286" key="GridCell.Tab.1.bottom" timestamp="1603261861929">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823236" />
-    <state width="1537" height="286" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1602651736173" />
-    <state width="1537" height="286" key="GridCell.Tab.1.center" timestamp="1602657823236">
+    <state width="1537" height="286" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603261861929" />
+    <state width="1537" height="286" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state width="1537" height="286" key="GridCell.Tab.1.center" timestamp="1603261861929">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.1.center/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823236" />
-    <state width="1537" height="286" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1602651736172" />
-    <state width="1537" height="286" key="GridCell.Tab.1.left" timestamp="1602657823235">
+    <state width="1537" height="286" key="GridCell.Tab.1.center/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603261861929" />
+    <state width="1537" height="286" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state width="1537" height="286" key="GridCell.Tab.1.left" timestamp="1603261861929">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.1.left/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823235" />
-    <state width="1537" height="286" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1602651736172" />
-    <state width="1537" height="286" key="GridCell.Tab.1.right" timestamp="1602657823236">
+    <state width="1537" height="286" key="GridCell.Tab.1.left/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603261861929" />
+    <state width="1537" height="286" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state width="1537" height="286" key="GridCell.Tab.1.right" timestamp="1603261861929">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1537" height="286" key="GridCell.Tab.1.right/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602657823236" />
-    <state width="1537" height="286" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1602651736173" />
+    <state width="1537" height="286" key="GridCell.Tab.1.right/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603261861929" />
+    <state width="1537" height="286" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1603263576347">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263576347" />
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1603253518855">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603253518855" />
+    <state x="421" y="51" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603255442331">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="421" y="51" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603255442331" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1602655649876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1602655649876" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
         <watch expression="symbolTable.hashTable.elements" />

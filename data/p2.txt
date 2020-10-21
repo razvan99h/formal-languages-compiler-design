@@ -1,0 +1,27 @@
+începe_program
+{
+	întreg x, d;
+	binar e_prim;
+	e_prim = adevărat;
+
+	citește(x);
+
+	pentru(d = 2; d <= x; d += 1)
+	{
+		dacă(x % d == 0)
+		{
+			e_prim = fals;
+		}
+	}
+
+	dacă(e_prim)
+	{
+		afișează('e prim!');
+	}
+	altfel
+	{
+		afișează('nu e prim!');
+	}
+
+	oprește;
+}
