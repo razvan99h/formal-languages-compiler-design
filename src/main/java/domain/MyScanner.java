@@ -3,7 +3,6 @@ package domain;
 import com.sun.tools.javac.util.Pair;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,7 +29,7 @@ public class MyScanner {
         String rW = "începe_program,continuă,oprește,citește,afișează,dacă,sau_dacă,altfel,pentru,cât_timp,întreg," +
                 "binar,real,caractere,șir,adevărat,fals,și,sau,negat";
         String sep = "[_]_{_}_(_)_;_:_,_ ";
-        String op = "<,<=,>,>=,==,!=,!,&&,||,^,=,+,-,*,%,/";
+        String op = "<,<=,>,>=,==,!=,!,&&,||,^,+=,-=,*=,/=,=,+,-,*,%,/";
         this.reservedWords = Arrays.stream(rW.split(",")).collect(Collectors.toList());
         this.separators = Arrays.stream(sep.split("_")).collect(Collectors.toList());
         this.operators = Arrays.stream(op.split(",")).collect(Collectors.toList());
@@ -47,12 +46,12 @@ public class MyScanner {
     }
 
     private boolean isIdentifier(String token) {
-        return token.matches("^[a-zA-ZăîâşţĂÎÂŞŢ]([a-zA-ZăîâşţĂÎÂŞŢ]|[0-9])*$");
+        return token.matches("^[a-zA-ZăîâşţĂÎÂŞŢ_]([a-zA-ZăîâşţĂÎÂŞŢ_]|[0-9])*$");
     }
 
     private boolean isConstant(String token) {
         boolean isInteger = token.matches("^0$|^(([+\\-])?[1-9](0|[0-9])*)$");
-        boolean isString = token.matches("^\"([a-zA-ZăîâşţĂÎÂŞŢ0-9])*\"$"); // TODO: add special characters ^"([a-zA-ZăîâşţĂÎÂŞŢ0-9_.,:!?<>=\-+*\/\\\{}()[\]\|\~\@\#\$\%\^\&\"])*"$
+        boolean isString = token.matches("^([\"'])([ a-zA-ZăîâşţĂÎÂŞŢ0-9_.,:;!?<>=+/|~@#$%^&*()\\\\{}\\[\\]\\-])*[\"']$");
         boolean isFloat = token.matches("^(0|(([+\\-])?[1-9](0|[0-9])*))(,[0-9][0-9]*)?$");
         boolean isBoolean = (token.equals("adevărat") || token.equals("fals"));
         return isInteger || isString || isFloat || isBoolean;
@@ -62,12 +61,12 @@ public class MyScanner {
         return (index != 0) && line.charAt(index - 1) == '\\';
     }
 
-    private Pair<String, Integer> getStringToken(String line, Integer index) {
+    private Pair<String, Integer> getStringToken(String line, Integer index, char quote) {
         String token = "";
         int quoteCount = 0;
 
         while (index < line.length() && quoteCount < 2) {
-            if (line.charAt(index) == '"' && !isEscapedQuote(line, index)) {
+            if (line.charAt(index) == quote && !isEscapedQuote(line, index)) {
                 quoteCount += 1;
             }
             token += line.charAt(index);
@@ -97,11 +96,11 @@ public class MyScanner {
         String token = "";
         int index = 0;
         while (index < line.length()) {
-            if (line.charAt(index) == '"') {
+            if (line.charAt(index) == '"' || line.charAt(index) == '\'') {
                 if (!token.equals("")) {
                     tokens.add(token);
                 }
-                Pair<String, Integer> res = this.getStringToken(line, index);
+                Pair<String, Integer> res = this.getStringToken(line, index, line.charAt(index));
                 token = res.fst;
                 index = res.snd;
                 tokens.add(token);
@@ -127,9 +126,9 @@ public class MyScanner {
                 token += line.charAt(index);
                 index += 1;
             }
-            if (!token.equals("")) {
-                tokens.add(token);
-            }
+        }
+        if (!token.equals("")) {
+            tokens.add(token);
         }
         return tokens;
     }
@@ -139,19 +138,28 @@ public class MyScanner {
         Scanner reader = new Scanner(file);
         int currentLine = 1;
         while (reader.hasNextLine()) {
-            String line = reader.nextLine();
+            String line = reader.nextLine().strip();
+            List<String> tokens = this.getLineTokens(line);
 
-            for (String token : this.getLineTokens(line)) {
+            for (String token : tokens) {
                 if (this.reservedTokens.contains(token)) {
-                    this.pif.addElement(token, new Position(-1, 0));
+                    if (!token.equals(" "))
+                        this.pif.addElement(token, new Position(-1, 0));
                 } else if (this.isIdentifier(token)) {
-                    Position position = this.symbolTable.add(token);
+                    Position position = this.symbolTable.search(token);
+                    if (position.hashTableIndex == -1) {
+                        position = this.symbolTable.add(token);
+                    }
                     this.pif.addElement("IDENTIFIER", position);
                 } else if (this.isConstant(token)) {
-                    Position position = this.symbolTable.add(token);
+                    Position position = this.symbolTable.search(token);
+                    if (position.hashTableIndex == -1) {
+                        position = this.symbolTable.add(token);
+                    }
                     this.pif.addElement("CONSTANT", position);
                 } else {
-                    throw new Exception("Unknown token " + token + " at line " + currentLine);
+                    System.err.println("Unknown token " + token + " at line " + currentLine);
+                    return;
                 }
             }
 
@@ -165,11 +173,15 @@ public class MyScanner {
 
     @Override
     public String toString() {
-        return "Scanner{" +
-                "reservedWords=" + reservedWords +
-                ", separators=" + separators +
-                ", operators=" + operators +
-                ", codification=" + codification +
+        return "MyScanner{" +
+                "fileName='" + fileName + '\'' +
+                ", \nreservedWords=" + reservedWords +
+                ", \nseparators=" + separators +
+                ", \noperators=" + operators +
+                ", \ncodification=" + codification +
+                ", \nreservedTokens=" + reservedTokens +
+                ", \npif=" + pif +
+                ", \nsymbolTable=" + symbolTable +
                 '}';
     }
 }

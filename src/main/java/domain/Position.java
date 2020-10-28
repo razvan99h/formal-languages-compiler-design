@@ -8,4 +8,12 @@ public class Position {
         this.hashTableIndex = hashTableIndex;
         this.linkedListIndex = linkedListIndex;
     }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "hashTableIndex=" + hashTableIndex +
+                ", linkedListIndex=" + linkedListIndex +
+                '}';
+    }
 }

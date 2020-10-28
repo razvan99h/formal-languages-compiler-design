@@ -10,14 +10,14 @@ public class PIF {
         this.elements = new ArrayList<>();
     }
 
-    public void addElement(String token, Position ST_position) {
-        this.elements.add(new PIFElement(token, ST_position));
+    public void addElement(String token, Position STPosition) {
+        this.elements.add(new PIFElement(token, STPosition));
     }
 
     @Override
     public String toString() {
-        return "PIF{" +
+        return "\nPIF{\n" +
                 "elements=" + elements +
-                '}';
+                "\n}";
     }
 }

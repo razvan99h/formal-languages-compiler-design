@@ -11,4 +11,12 @@ public class Node {
         this.nextNode = null;
     }
 
+    @Override
+    public String toString() {
+        return "\nNode{" +
+                "identifier='" + identifier + '\'' +
+                ", index=" + index +
+                ", nextNode=" + nextNode +
+                "}";
+    }
 }

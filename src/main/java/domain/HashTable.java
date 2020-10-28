@@ -1,6 +1,8 @@
 package domain;
 
 
+import java.util.Arrays;
+
 public class HashTable {
 
     private Integer dimension;
@@ -46,5 +48,13 @@ public class HashTable {
             }
         }
         return new Position(-1, -1);
+    }
+
+    @Override
+    public String toString() {
+        return "HashTable{\n" +
+                "dimension=" + dimension +
+                ", elements=\n" + Arrays.toString(elements) +
+                "}\n";
     }
 }
