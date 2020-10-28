@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9142e89d-94bc-43cc-b3f1-f3f242e8bb41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/p1.txt.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/p1err.txt.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/p2.txt.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/p3.txt.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class_diagram.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/HashTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/HashTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/SymbolTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/MyScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/MyScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/PIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/PIF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/PIFElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/PIFElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/SymbolTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +78,7 @@
       <workItem from="1602618746889" duration="3560000" />
       <workItem from="1602653660438" duration="4466000" />
       <workItem from="1603253492498" duration="15835000" />
-      <workItem from="1603865391143" duration="6468000" />
+      <workItem from="1603865391143" duration="8686000" />
     </task>
     <task id="LOCAL-00001" summary="End of lab 4">
       <created>1603263613516</created>
@@ -112,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603263613516</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="End of lab 5 - everything solved">
+      <created>1603871919566</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603871919566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,7 +103,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="End of lab 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="End of lab 4" />
+    <MESSAGE value="End of lab 5 - everything solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of lab 5 - everything solved" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="90" key="#Project_Structure" timestamp="1602618811194">
@@ -146,10 +129,14 @@
     </state>
     <state x="432" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603871270027" />
     <state x="486" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1602621397475" />
-    <state x="183" y="26" key="CommitChangelistDialog2" timestamp="1603263612024">
+    <state x="183" y="26" key="CommitChangelistDialog2" timestamp="1603874246301">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="183" y="26" key="CommitChangelistDialog2/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263612024" />
+    <state x="183" y="26" key="CommitChangelistDialog2/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603874246301" />
+    <state x="157" y="68" key="DiffContextDialog" timestamp="1603874234722">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="157" y="68" key="DiffContextDialog/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603874234722" />
     <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1602655589558">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -194,10 +181,10 @@
     </state>
     <state width="1537" height="460" key="GridCell.Tab.1.right/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603275529242" />
     <state width="1537" height="286" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1602759501643" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1603263616352">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1603871922019">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603263616352" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864/1920.24.1680.1050@0.0.1536.864" timestamp="1603871922019" />
     <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1603865523408">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
