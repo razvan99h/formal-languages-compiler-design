@@ -3,6 +3,7 @@ package domain;
 import com.sun.tools.javac.util.Pair;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,10 +15,13 @@ public class MyScanner {
     private List<String> operators;
     private Map<String, Integer> codification;
     private List<String> reservedTokens;
+    private FiniteAutomata identifierFA;
+    private FiniteAutomata integerFA;
     public PIF pif;
     public SymbolTable symbolTable;
 
-    public MyScanner(String fileName, SymbolTable symbolTable) {
+
+    public MyScanner(String fileName, SymbolTable symbolTable) throws FileNotFoundException {
         this.fileName = fileName;
         this.symbolTable = symbolTable;
         this.reservedWords = new ArrayList<>();
@@ -43,14 +47,20 @@ public class MyScanner {
         for (int i = 0; i < everything.size(); i++) {
             this.codification.put(everything.get(i), i + 2);
         }
+
+        this.identifierFA = new FiniteAutomata("data/fa-identifiers.txt");
+        this.integerFA = new FiniteAutomata("data/fa-integer-const.txt");
+        if (!this.identifierFA.isDeterministic() || !this.integerFA.isDeterministic())
+            throw new IllegalArgumentException("The Finite Automatons must be deterministic!");
     }
 
     private boolean isIdentifier(String token) {
-        return token.matches("^[a-zA-ZăîâşţĂÎÂŞŢ_]([a-zA-ZăîâşţĂÎÂŞŢ_]|[0-9])*$");
+//        return token.matches("^[a-zA-ZăîâşţĂÎÂŞŢ_]([a-zA-ZăîâşţĂÎÂŞŢ_]|[0-9])*$");
+        return identifierFA.verifySequence(token);
     }
 
     private boolean isConstant(String token) {
-        boolean isInteger = token.matches("^0$|^(([+\\-])?[1-9](0|[0-9])*)$");
+        boolean isInteger = integerFA.verifySequence(token);
         boolean isString = token.matches("^([\"'])([ a-zA-ZăîâşţĂÎÂŞŢ0-9_.,:;!?<>=+/|~@#$%^&*()\\\\{}\\[\\]\\-])*[\"']$");
         boolean isFloat = token.matches("^(0|(([+\\-])?[1-9](0|[0-9])*))(,[0-9][0-9]*)?$");
         boolean isBoolean = (token.equals("adevărat") || token.equals("fals"));
@@ -76,7 +86,7 @@ public class MyScanner {
     }
 
     private boolean isPartOfOperator(char character) {
-        for(String operator : this.operators)
+        for (String operator : this.operators)
             if (operator.contains("" + character))
                 return true;
         return false;
@@ -105,16 +115,25 @@ public class MyScanner {
                 index = res.snd;
                 tokens.add(token);
                 token = "";
-            } else if(this.isPartOfOperator(line.charAt(index))) {
+            } else if (this.isPartOfOperator(line.charAt(index))) {
                 if (!token.equals("")) {
                     tokens.add(token);
                 }
-                Pair<String, Integer> res = this.getOperatorToken(line, index);
-                token = res.fst;
-                index = res.snd;
-                tokens.add(token);
-                token = "";
-            } else if(this.separators.contains("" + line.charAt(index))) {
+                char character = line.charAt(index);
+                boolean lastElemIdentifier = this.pif.elements.get(this.pif.elements.size() - 1).token.equals("IDENTIFIER");
+                boolean lastElemConstant = this.pif.elements.get(this.pif.elements.size() - 1).token.equals("CONSTANT");
+                if ((character == '+' || character == '-') && !(lastElemConstant || lastElemIdentifier)) {
+                    token += character;
+                    index += 1;
+                }
+                else {
+                    Pair<String, Integer> res = this.getOperatorToken(line, index);
+                    token = res.fst;
+                    index = res.snd;
+                    tokens.add(token);
+                    token = "";
+                }
+            } else if (this.separators.contains("" + line.charAt(index))) {
                 if (!token.equals("")) {
                     tokens.add(token);
                 }

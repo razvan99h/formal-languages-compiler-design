@@ -19,6 +19,14 @@ public class FiniteAutomata {
         this.transitions = new ArrayList<>();
     }
 
+    public FiniteAutomata(String fileName) throws FileNotFoundException {
+        this.states = new HashSet<>();
+        this.alphabet = new HashSet<>();
+        this.finalStates = new HashSet<>();
+        this.transitions = new ArrayList<>();
+        this.readFromFile(fileName);
+    }
+
     public void readFromFile(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner reader = new Scanner(file);
@@ -32,10 +40,8 @@ public class FiniteAutomata {
             Transition newTransition = this.parseTransitionLine(reader.nextLine().strip());
             // TODO: check if transition exists (i.e. same initial state and symbol) and if it exists, add the states
             //  not a new transition
-            boolean exists = false;
             for (Transition transition : this.transitions) {
                 if (transition.fromState.equals(newTransition.fromState) && transition.symbol.equals(newTransition.symbol)) {
-                    exists = true;
                     transition.toStates.add(newTransition.fromState);
                 }
             }
@@ -56,15 +62,17 @@ public class FiniteAutomata {
         int i;
         for (i = 0; i < sequence.length(); i++) {
             String symbol = "" + sequence.charAt(i);
-            if (this.finalStates.contains(state))
-                break;
+            boolean foundTransition = false;
             for (Transition transition : this.transitions) {
-                if (transition.fromState.equals(state) & transition.symbol.equals(symbol))
+                if (transition.fromState.equals(state) && transition.symbol.equals(symbol)) {
+                    foundTransition = true;
                     state = transition.toStates.get(0);
+                }
             }
+            if (!foundTransition)
+                return false;
         }
-//        System.out.println(state + " " + i);
-        return i == sequence.length();
+        return i == sequence.length() && this.finalStates.contains(state);
     }
 
     private void parseLine(Set<String> set, String line, String element) {

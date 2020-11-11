@@ -1,8 +1,8 @@
 începe_program
 {
-	întreg n, i, suma;
+	întreg n, i, 9suma;
 	șir v;
-	suma = 0;
+	suma = 3 + 4;
 	
 	citește(n);
 	pentru(i = 1; i <= n ; i += 1)
