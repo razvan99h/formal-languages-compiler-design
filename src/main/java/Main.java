@@ -1,6 +1,7 @@
 import domain.FiniteAutomata;
 import domain.MyScanner;
 import domain.SymbolTable;
+import parser.Grammar;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
@@ -10,16 +11,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        // Lab 4 - final
-        System.out.println("Input program file name: ");
-        String fileName = reader.readLine();
-
-        MyScanner scanner = new MyScanner("data/"+ fileName, new SymbolTable(71));
-        scanner.startScanning();
-        System.out.println(scanner);
-
-        FileWriter myWriter = new FileWriter("data/" + fileName + ".out");
-        myWriter.write(scanner.toString());
+//        // Lab 4 - final
+//        System.out.println("Input program file name: ");
+//        String fileName = reader.readLine();
+//
+//        MyScanner scanner = new MyScanner("data/"+ fileName, new SymbolTable(71));
+//        scanner.startScanning();
+//        System.out.println(scanner);
+//
+//        FileWriter myWriter = new FileWriter("data/" + fileName + ".out");
+//        myWriter.write(scanner.toString());
 
 //        // Lab 4
 //        FiniteAutomata finiteAutomata = new FiniteAutomata();
@@ -40,6 +41,9 @@ public class Main {
 //                System.out.println("\nThe given FA is nondeterministic!");
 //        }
 
+        // Lab 5
+        Grammar grammar = new Grammar("data/g1.txt");
+        System.out.println(grammar.toString());
         }
 
 }

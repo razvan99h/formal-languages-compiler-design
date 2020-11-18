@@ -1,0 +1,5 @@
+S,A
+a,b,c,int
+S
+S -> int S b S | a S | c
+A -> a | a A
