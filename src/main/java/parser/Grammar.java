@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Grammar {
     private List<String> terminals;
@@ -37,6 +39,14 @@ public class Grammar {
 
     public List<List<String>> getProductionsOfNonTerminal(String nonTerminal) {
         return this.productions.get(nonTerminal);
+    }
+
+    public String getStartSymbol() {
+        return startSymbol;
+    }
+
+    public List<String> getTerminalsAndNonTerminals() {
+        return Stream.concat(this.terminals.stream(), this.nonTerminals.stream()).collect(Collectors.toList());
     }
 
     private void validateElement(String element) {

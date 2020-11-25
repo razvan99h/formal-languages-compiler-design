@@ -88,12 +88,4 @@ PIFElement{token='oprește', ST_position=Position{hashTableIndex=-1, linkedListI
 PIFElement{token=';', ST_position=Position{hashTableIndex=-1, linkedListIndex=0}}, 
 PIFElement{token='}', ST_position=Position{hashTableIndex=-1, linkedListIndex=0}}]
 }, 
-symbolTable=SymbolTable{hashTable=HashTable{
-dimension=71, elements=
-[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-Node{identifier='' este cel mai mic număr'', index=0, nextNode=null}, null,
-Node{identifier='a', index=0, nextNode=null},
-Node{identifier='b', index=0, nextNode=null},
-Node{identifier='c', index=0, nextNode=null}, null, null,
-Node{identifier='mesaj', index=0, nextNode=null}, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]}
-}}
+symbolTable=SymbolTable{hashT

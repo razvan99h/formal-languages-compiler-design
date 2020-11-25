@@ -2,6 +2,7 @@ import domain.FiniteAutomata;
 import domain.MyScanner;
 import domain.SymbolTable;
 import parser.Grammar;
+import parser.Parser;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
@@ -41,9 +42,16 @@ public class Main {
 //                System.out.println("\nThe given FA is nondeterministic!");
 //        }
 
-        // Lab 5
+//        // Lab 5 - part 1
+//        Grammar grammar = new Grammar("data/g1.txt");
+//        System.out.println(grammar.toString());
+
+
+        // Lab 5 - part 2
         Grammar grammar = new Grammar("data/g1.txt");
-        System.out.println(grammar.toString());
-        }
+        Parser parser = new Parser(grammar);
+        parser.canonicalCollection();
+
+    }
 
 }
