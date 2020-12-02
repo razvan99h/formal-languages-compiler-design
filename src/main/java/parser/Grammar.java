@@ -88,8 +88,8 @@ public class Grammar {
 
     private void readFromFile() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.fileName));
-        this.nonTerminals = Arrays.asList(reader.readLine().split(","));
-        this.terminals = Arrays.asList(reader.readLine().split(","));
+        this.nonTerminals = Arrays.asList(reader.readLine().split(" "));
+        this.terminals = Arrays.asList(reader.readLine().split(" "));
         this.startSymbol = reader.readLine();
 
         this.validateElement(this.startSymbol);

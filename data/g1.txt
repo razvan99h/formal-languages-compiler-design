@@ -1,5 +1,5 @@
-S',S,A,
-a,b,c,int
+S' S A 
+a b c int
 S'
 S' -> S
 S -> int S b S | a S | c

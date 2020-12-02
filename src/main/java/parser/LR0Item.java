@@ -32,6 +32,25 @@ public class LR0Item {
         return dotPosition;
     }
 
+    public boolean dotInTheEnd() {
+        return dotPosition == content.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LR0Item lr0Item = (LR0Item) o;
+        return dotPosition == lr0Item.dotPosition &&
+                Objects.equals(nonTerminal, lr0Item.nonTerminal) &&
+                Objects.equals(content, lr0Item.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nonTerminal, content, dotPosition);
+    }
+
     @Override
     public String toString() {
         String result = "[ " + nonTerminal + " -> ";

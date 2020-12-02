@@ -47,10 +47,16 @@ public class Main {
 //        System.out.println(grammar.toString());
 
 
-        // Lab 5 - part 2
-        Grammar grammar = new Grammar("data/g1.txt");
+//        // Lab 5 - part 2
+//        Grammar grammar = new Grammar("data/g4.txt");
+//        Parser parser = new Parser(grammar);
+//        parser.canonicalCollection(false);
+
+        // Lab 6
+        Grammar grammar = new Grammar("data/g4.txt");
+        System.out.println(grammar.toString());
         Parser parser = new Parser(grammar);
-        parser.canonicalCollection();
+        parser.parseSequence("abbc", true);
 
     }
 
