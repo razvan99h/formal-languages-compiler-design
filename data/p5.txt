@@ -1,0 +1,6 @@
+începe_program
+{
+	întreg a;
+	oprește;
+}
+

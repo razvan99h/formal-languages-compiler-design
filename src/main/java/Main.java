@@ -7,6 +7,9 @@ import parser.Parser;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -55,8 +58,15 @@ public class Main {
         // Lab 6
         Grammar grammar = new Grammar("data/g4.txt");
         System.out.println(grammar.toString());
-        Parser parser = new Parser(grammar);
-        parser.parseSequence("abbc", true);
+        Parser parser = new Parser(grammar, true);
+        parser.parseCharacterSequence("acc");
+
+        // Lab 7
+//        Grammar grammar = new Grammar("data/gLanguage.txt", true);
+//        System.out.println(grammar.toString());
+//        Parser parser = new Parser(grammar, true);
+//
+//        parser.parseFile("data/p5.txt");
 
     }
 

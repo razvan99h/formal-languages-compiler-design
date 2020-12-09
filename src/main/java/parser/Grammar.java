@@ -16,6 +16,7 @@ public class Grammar {
     private HashMap<String, List<List<String>>> productions;
     private String startSymbol;
     private String fileName;
+    private boolean addSpace = false;
 
     public Grammar(String fileName) throws IOException {
         this.terminals = new ArrayList<>();
@@ -25,8 +26,21 @@ public class Grammar {
         this.readFromFile();
     }
 
+    public Grammar(String fileName, boolean addSpace) throws IOException {
+        this.terminals = new ArrayList<>();
+        this.nonTerminals = new ArrayList<>();
+        this.productions = new HashMap<>();
+        this.fileName = fileName;
+        this.readFromFile();
+        this.addSpace = addSpace;
+    }
+
     public List<String> getTerminals() {
         return terminals;
+    }
+
+    public void addTerminal(String terminal) {
+        this.terminals.add(terminal);
     }
 
     public List<String> getNonTerminals() {
@@ -91,6 +105,9 @@ public class Grammar {
         this.nonTerminals = Arrays.asList(reader.readLine().split(" "));
         this.terminals = Arrays.asList(reader.readLine().split(" "));
         this.startSymbol = reader.readLine();
+        if (this.addSpace) {
+            this.terminals.add(" ");
+        }
 
         this.validateElement(this.startSymbol);
 

@@ -15,6 +15,9 @@ public class LR0TableRow {
         this.goTo = new ArrayList<>();
     }
 
+    public String reduceProductionString() {
+        return reduceNonTerminal + " -> " + reduceProductionBody;
+    }
 
     @Override
     public String toString() {

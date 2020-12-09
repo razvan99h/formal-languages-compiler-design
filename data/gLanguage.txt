@@ -1,10 +1,10 @@
-S' program stmtlist stmt decl type primarytypes arraytype stringtype cmpstmt simplestmt assignment expression operation term constant iostmt inputstmt outputstmt flowstms structstmt ifstmt condition whilestmt forstmt
-[ ] { } ( ) ; : , < <= > >= == != ! && || ^ += -= *= /= = + - * % / începe_program continuă oprește citește afișează dacă sau_dacă altfel pentru cât_timp întreg binar real caractere șir adevărat fals și sau negat
+S' program stmtlist stmt decl identifierlist type primarytypes arraytype stringtype cmpstmt simplestmt assignment expression operation term constant iostmt inputstmt outputstmt termlist flowstmt structstmt ifstmt elseword condition negationword whilestmt forstmt
+IDENTIFIER CONSTANT identifier letter non_zero_digit digit integer integer_const string_const quotes special_symbol real_const binary_const relation [ ] { } ( ) ; : , < <= > >= == != ! && || ^ += -= *= /= = + - * % / începe_program continuă oprește citește afișează dacă sau_dacă altfel pentru cât_timp întreg binar real caractere șir adevărat fals și sau negat
 S'
 S' -> program
 program -> începe_program { stmtlist }
 stmtlist -> stmt | stmt stmtlist
-stmt -> decl | simplestmt | structstmt
+stmt -> simplestmt | structstmt
 decl -> type identifier | type identifier identifierlist
 identifierlist -> , identifier | , identifier identifierlist
 type -> primarytypes | arraytype | stringtype
@@ -12,7 +12,7 @@ primarytypes -> întreg | real
 arraytype -> primarytypes [ integer_const ]
 stringtype -> caractere
 cmpstmt -> { stmtlist }
-simplestmt -> assignment ; | iostmt ; | flowstmt ;
+simplestmt -> decl ; | assignment ; | iostmt ; | flowstmt ;
 assignment -> identifier = expression
 expression -> term | expression operation expression | ( expression operation expression )
 operation -> + | - | * | / | % | ^
@@ -22,15 +22,11 @@ iostmt -> inputstmt | outputstmt
 inputstmt -> citește ( identifier )
 outputstmt -> afișează ( term ) | afișează ( term , termlist )
 termlist -> , term | , term termlist
-flowstms -> continuă | oprește
+flowstmt -> continuă | oprește
 structstmt -> ifstmt | whilestmt | forstmt | cmpstmt
-ifstmt -> dacă ( condition ) stmt | dacă ( condition ) stmt nextstmt
-nextstmt -> stmt | elseword stmt
+ifstmt -> dacă ( condition ) stmt | dacă ( condition ) stmt elseword stmt
 elseword -> sau_dacă | altfel
-
-
-
-
-condition -> ! | negat expression relation expression
-whilestmt -> cât_timp ( condition ) compstmt
-forstmt -> pentru ( assignment ; condition ; assignment ) stmt
+condition -> expression relation expression | negationword expression relation expression
+negationword -> ! | negat
+whilestmt -> cât_timp ( condition ) cmpstmt
+forstmt -> pentru ( assignment ; condition ; assignment ) cmpstmt

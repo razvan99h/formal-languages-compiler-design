@@ -51,6 +51,10 @@ public class LR0Item {
         return Objects.hash(nonTerminal, content, dotPosition);
     }
 
+    public String toProductionString() {
+        return this.nonTerminal + " -> " + this.getContent();
+    }
+
     @Override
     public String toString() {
         String result = "[ " + nonTerminal + " -> ";

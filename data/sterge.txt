@@ -1,0 +1,1 @@
+S' program stmtlist stmt decl identifierlist type primarytypes arraytype stringtype cmpstmt simplestmt assignment expression operation term constant iostmt inputstmt outputstmt termlist flowstms structstmt ifstmt elseword condition negationword whilestmt forstmt 
