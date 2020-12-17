@@ -1,6 +1,37 @@
 începe_program
 {
 	întreg a;
+	dacă(a) {
+	    a = 1;
+	}
+	altfel {
+	    a = 2;
+	}
+
+
+	întreg x;
+    binar e_prim;
+    e_prim = adevărat;
+
+    citește(x);
+
+    dacă(e_prim)
+    {
+        afișează('e prim!');
+    }
+    altfel
+    {
+        afișează('nu e prim!');
+    }
+
+    întreg n;
+    șir [10] real v;
+
+    citește(n);
+    cât_timp(adevărat) {
+        afișează("infinit");
+    }
+
 	oprește;
 }
 

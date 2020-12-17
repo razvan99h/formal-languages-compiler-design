@@ -55,18 +55,18 @@ public class Main {
 //        Parser parser = new Parser(grammar);
 //        parser.canonicalCollection(false);
 
-        // Lab 6
-        Grammar grammar = new Grammar("data/g4.txt");
-        System.out.println(grammar.toString());
-        Parser parser = new Parser(grammar, true);
-        parser.parseCharacterSequence("acc");
-
-        // Lab 7
-//        Grammar grammar = new Grammar("data/gLanguage.txt", true);
+//        // Lab 6
+//        Grammar grammar = new Grammar("data/g4.txt");
 //        System.out.println(grammar.toString());
 //        Parser parser = new Parser(grammar, true);
-//
-//        parser.parseFile("data/p5.txt");
+//        parser.parseCharacterSequence("a");
+
+        // Lab 7
+        Grammar grammar = new Grammar("data/gLanguage.txt", true);
+        System.out.println(grammar.toString());
+        Parser parser = new Parser(grammar, true);
+
+        parser.parseFile("data/p5.txt");
 
     }
 

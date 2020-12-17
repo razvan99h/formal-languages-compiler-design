@@ -1,5 +1,7 @@
 package parser;
 
+import com.sun.tools.javac.util.Pair;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,6 +16,7 @@ public class Grammar {
     private List<String> terminals;
     private List<String> nonTerminals;
     private HashMap<String, List<List<String>>> productions;
+    private List<Pair<String, List<String>>> orderedProductions;
     private String startSymbol;
     private String fileName;
     private boolean addSpace = false;
@@ -22,6 +25,7 @@ public class Grammar {
         this.terminals = new ArrayList<>();
         this.nonTerminals = new ArrayList<>();
         this.productions = new HashMap<>();
+        this.orderedProductions = new ArrayList<>();
         this.fileName = fileName;
         this.readFromFile();
     }
@@ -30,6 +34,7 @@ public class Grammar {
         this.terminals = new ArrayList<>();
         this.nonTerminals = new ArrayList<>();
         this.productions = new HashMap<>();
+        this.orderedProductions = new ArrayList<>();
         this.fileName = fileName;
         this.readFromFile();
         this.addSpace = addSpace;
@@ -49,6 +54,10 @@ public class Grammar {
 
     public HashMap<String, List<List<String>>> getProductions() {
         return productions;
+    }
+
+    public List<Pair<String, List<String>>> getOrderedProductions() {
+        return orderedProductions;
     }
 
     public List<List<String>> getProductionsOfNonTerminal(String nonTerminal) {
@@ -87,6 +96,7 @@ public class Grammar {
             for (String element : rightSide) {
                 List<String> productionElements =  Arrays.asList(element.strip().split(" "));
                 this.validateProductionElement(productionElements);
+                this.orderedProductions.add(new Pair<>(nonTerminal, productionElements));
 
                 List<List<String>> existingProductions = this.productions.get(nonTerminal);
                 if (existingProductions == null) {
@@ -122,6 +132,7 @@ public class Grammar {
                 ",\n\tterminals = " + terminals +
                 ",\n\tstartSymbol = '" + startSymbol + '\'' +
                 ",\n\tproductions = " + productions +
+                ", \n\torderedProductions=" + orderedProductions +
                 "\n}";
     }
 }

@@ -1,13 +1,11 @@
 package parser;
 
+import com.sun.tools.javac.util.Pair;
 import domain.MyScanner;
 import domain.PIFElement;
 import domain.SymbolTable;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Parser {
     private Grammar grammar;
@@ -17,13 +15,23 @@ public class Parser {
     public Parser(Grammar grammar, boolean showOutput) {
         this.grammar = grammar;
         this.table = new LR0Table();
-        this.buildLR0Table(showOutput);
+
+//        this.buildLR0Table(showOutput);
+        try {
+            this.buildLR0Table(showOutput);
+        } catch (RuntimeException ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getMessage());
+            System.exit(0);
+        }
     }
 
     private List<LR0Item> closure(List<LR0Item> items) {
         List<LR0Item> closure = new ArrayList<>(items);
 
         int index = 0;
+        int cnt = 0;
+
         while (index < closure.size()) {
             LR0Item item = closure.get(index);
             int dotPosition = item.getDotPosition();
@@ -31,6 +39,10 @@ public class Parser {
                 String symbol = item.getContent().get(dotPosition);
                 if (grammar.getNonTerminals().contains(symbol)) {
                     for (List<String> production : grammar.getProductionsOfNonTerminal(symbol)) {
+//                        System.out.println(++cnt);
+                        if (cnt == 34) {
+                            int x = 1;
+                        }
                         LR0Item newItem = new LR0Item(symbol, production);
                         if (!closure.contains(newItem))
                             closure.add(newItem);
@@ -86,7 +98,16 @@ public class Parser {
         return collection;
     }
 
-    public void buildLR0Table(boolean showOutput) {
+    private void checkForConflicts(List<LR0Item> state) throws RuntimeException {
+        long dotInTheEnd = state.stream().filter(LR0Item::dotInTheEnd).count();
+        boolean dotInTheMiddle = state.stream().anyMatch(item -> !item.dotInTheEnd());
+        if (dotInTheEnd > 1)
+            throw new RuntimeException("REDUCE - REDUCE conflict for state \n" + state + "\n\nThe given grammar is not LR(0)!");
+        if (dotInTheEnd == 1 && dotInTheMiddle)
+            throw new RuntimeException("SHIFT - REDUCE conflict for state \n" + state + "\n\nThe given grammar is not LR(0)!");
+    }
+
+    public void buildLR0Table(boolean showOutput) throws RuntimeException {
         this.canonicalCollection = this.canonicalCollection(showOutput);
         for (int i = 0; i < canonicalCollection.size(); i++) {
             List<LR0Item> state = canonicalCollection.get(i);
@@ -106,6 +127,7 @@ public class Parser {
             }
             if (action.equals(""))
                 action = "error";
+            this.checkForConflicts(state);
 
             row.action = action;
 
@@ -127,17 +149,16 @@ public class Parser {
     public void parse(Stack<String> inputStack) {
         Stack<LR0WorkingStackElement> workingStack = new Stack<>();
         Stack<String> outputStack = new Stack<>();
+        Stack<Integer> outputStackNumbered = new Stack<>();
         String lastSymbol = "";
         int stateIndex = 0;
         boolean end = false;
         workingStack.push(new LR0WorkingStackElement(0, ""));
         try {
             do {
-                if (stateIndex == 20) {
-                    int REMOVE_this_line = 1;
-                }
                 LR0TableRow row = this.table.rows.get(stateIndex);
                 if (row.action.equals("shift")) {
+                    // TODO : handle Empty stack
                     String character = inputStack.pop();
                     LR0TableRowGoto state = row.goTo
                             .stream()
@@ -162,10 +183,24 @@ public class Parser {
                     lastSymbol = row.reduceNonTerminal;
                     workingStack.push(new LR0WorkingStackElement(state.stateIndex, row.reduceNonTerminal));
                     outputStack.push(row.reduceProductionString());
+                    int productionNumber = grammar.getOrderedProductions().indexOf(new Pair<>(row.reduceNonTerminal, row.reduceProductionBody));
+                    outputStackNumbered.push(productionNumber);
                 } else {
                     if (row.action.equals("accept")) {
-                        // TODO: check for the empty stack to be empty
-                        System.out.println("SUCCES " + outputStack);
+                        List <String> output = new ArrayList<>(outputStack);
+                        Collections.reverse(output);
+                        List <Integer> outputNumbered = new ArrayList<>(outputStackNumbered);
+                        Collections.reverse(outputNumbered);
+
+                        System.out.println("SUCCES");
+                        System.out.println("The productions in order: " + output);
+                        System.out.println("The productions numbers: " + outputNumbered);
+
+                        TreeOutput treeOutput = new TreeOutput();
+                        treeOutput.addParsedSequence(outputStackNumbered, grammar);
+                        System.out.println("The parsing tree:");
+                        treeOutput.traverseTree(treeOutput.getRoot());
+
                         end = true;
                     }
                     if (row.action.equals("error")) {
